@@ -3,90 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #d0d0d0; /* Gris claro para el fondo */
-        }
-        .calculator {
-            background: #fff; /* Blanco para el fondo de la calculadora */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            width: 350px;
-            text-align: center; /* Centrar contenido dentro de la calculadora */
-        }
-        .input-group {
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-        }
-        .input-box {
-            width: 45%;
-            padding: 10px;
-            font-size: 1.2em;
-            text-align: right;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background: #f5f5f5; /* Gris claro para los recuadros */
-        }
-        .operation-select {
-            width: 100%;
-            padding: 10px;
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background: #e0f7fa; /* Azul cielo para el select */
-        }
-        .calculate-button {
-            width: 100%;
-            padding: 10px;
-            font-size: 1.2em;
-            text-align: center;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background: #80deea; /* Azul cielo para el botón */
-            color: #fff;
-        }
-        .calculate-button:hover {
-            background: #4dd0e1; /* Azul cielo más oscuro al pasar el ratón */
-        }
-        .result-box {
-            width: 100%;
-            padding: 10px;
-            font-size: 1.5em;
-            text-align: right;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background: #e0f7fa; /* Azul cielo claro para el resultado */
-            margin-top: 10px; /* Espacio superior para separación */
-        }
-    </style>
+    <title>Mi Página Web con Slider</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="calculator">
-        <H1>CALCULADORA</H1>
-        <div class="input-group">
-            <input type="text" class="input-box" id="num1" placeholder="Número 1">
-            <input type="text" class="input-box" id="num2" placeholder="Número 2">
+    <header>
+        <h1>Pagina de Apreciacion a la Garza Chichona</h1>
+    </header>
+    
+    <section class="slider">
+        <div class="slides">
+            <img src="https://images6.alphacoders.com/135/1350496.png" alt="Imagen 1">
+            <img src="https://images6.alphacoders.com/135/1350922.jpeg" alt="Imagen 2">
+            <img src="https://wallpapercave.com/wp/wp13499708.jpg" alt="Imagen 3">
+            <img src="https://wallpapercave.com/wp/wp13499814.jpg" alt="Imagen 4">
+            <img src="https://wallpapercave.com/wp/wp13499817.png" alt="Imagen 5">
+            <img src="https://wallpapercave.com/wp/wp13499877.png" alt="Imagen 6">
         </div>
-        <select class="operation-select" id="operation">
-            <option value="/">División</option>
-            <option value="*">Multiplicación</option>
-            <option value="-">Resta</option>
-            <option value="+">Suma</option>
-        </select>
-        <button class="calculate-button" onclick="calculateResult()">Calcular</button>
-        <div class="result-box" id="result">Resultado</div>
-    </div>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+    </section>
+    
+    <section class="thumbnails">
+        <img src="https://images6.alphacoders.com/135/1350496.png" alt="Imagen 1" class="thumb" data-index="0">
+        <img src="https://images6.alphacoders.com/135/1350922.jpeg" alt="Imagen 2" class="thumb" data-index="1">
+        <img src="https://wallpapercave.com/wp/wp13499708.jpg" alt="Imagen 3" class="thumb" data-index="2">+
+        <img src="https://wallpapercave.com/wp/wp13499814.jpg" alt="Imagen 4" class="thumb" data-index="2">
+        <img src="https://wallpapercave.com/wp/wp13499817.png" alt="Imagen 5" class="thumb" data-index="2">
+        <img src="https://wallpapercave.com/wp/wp13499877.png" alt="Imagen 6" class="thumb" data-index="2">
+    </section>
+    
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,55 +1,43 @@
-// Define the operations as a JSON object
-const operationsJSON = {
-    "+": (a, b) => a + b,
-    "-": (a, b) => a - b,
-    "*": (a, b) => a * b,
-    "/": (a, b) => {
-        if (b === 0) return 'Error'; // Handling division by zero
-        return a / b;
-    }
-};
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slides img');
+const thumbnails = document.querySelectorAll('.thumbnails .thumb');
+const totalSlides = slides.length;
 
-// Create an object to manage the calculator state
-const calculator = {
-    num1: null,
-    num2: null,
-    operation: null,
-
-    setNum1(value) {
-        this.num1 = parseFloat(value);
-    },
-    
-    setNum2(value) {
-        this.num2 = parseFloat(value);
-    },
-
-    setOperation(op) {
-        this.operation = op;
-    },
-
-    calculate(callback) {
-        if (isNaN(this.num1) || isNaN(this.num2)) {
-            callback('Error');
-            return;
-        }
-
-        const result = operationsJSON[this.operation](this.num1, this.num2);
-        callback(result);
-    }
-};
-
-// Function to get values from the inputs and perform the calculation
-function calculateResult() {
-    const num1 = document.getElementById('num1').value;
-    const num2 = document.getElementById('num2').value;
-    const operation = document.getElementById('operation').value;
-    const resultBox = document.getElementById('result');
-
-    calculator.setNum1(num1);
-    calculator.setNum2(num2);
-    calculator.setOperation(operation);
-
-    calculator.calculate((result) => {
-        resultBox.textContent = result;
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.style.display = i === index ? 'block' : 'none';
+    });
+    thumbnails.forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === index);
     });
 }
+
+function nextSlide() {
+    slideIndex = (slideIndex + 1) % totalSlides;
+    showSlide(slideIndex);
+}
+
+function prevSlide() {
+    slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+    showSlide(slideIndex);
+}
+
+function goToSlide(index) {
+    slideIndex = index;
+    showSlide(slideIndex);
+}
+
+// Inicializar el slider
+showSlide(slideIndex);
+
+// Configurar los botones
+document.querySelector('.next').addEventListener('click', nextSlide);
+document.querySelector('.prev').addEventListener('click', prevSlide);
+
+// Configurar las miniaturas
+thumbnails.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => goToSlide(index));
+});
+
+// Eliminar el intervalo automático
+// setInterval(nextSlide, 5000); // Cambiar cada 5 segundos
